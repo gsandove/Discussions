@@ -1,4 +1,4 @@
-export function initLocalStorage(props) {
+export function initLocalStorage() {
   localStorage.setItem(
     "users",
     JSON.stringify([

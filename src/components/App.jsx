@@ -1,6 +1,7 @@
 import { Box, ChakraProvider, Heading, Link } from "@chakra-ui/react";
 import theme from "./Theme";
 import Discussions from "./Discussions";
+import { initLocalStorage } from "./Storage";
 const linkStyles = {
   color: "#ffffffcc",
   transition: "color 0.15s",
@@ -9,6 +10,7 @@ const linkStyles = {
 };
 
 function App() {
+  initLocalStorage();
   return (
     <ChakraProvider theme={theme}>
       {/* move this to navbar component */}
