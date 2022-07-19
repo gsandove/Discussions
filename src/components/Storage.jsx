@@ -8,29 +8,32 @@ export function initLocalStorage() {
       },
     ])
   );
-  localStorage.setItem("discussions", [
-    {
-      id: 1,
-      title: "Title Discussion",
-      body: "Example Discussion",
-      author: "admins",
-      created_at: "19/07/2022",
-      replies: [
-        {
-          id: 1,
-          author: "admin",
-          comment: "Example Reply",
-          replies: [
-            {
-              author: "admin",
-              created_at: "19/07/2022",
-              comment: "Example reply reply",
-            },
-          ],
-        },
-      ],
-    },
-  ]);
+  localStorage.setItem(
+    "discussions",
+    JSON.stringify([
+      {
+        id: 1,
+        title: "Title Discussion",
+        body: "Example Discussion",
+        author: "admins",
+        created_at: "19/07/2022",
+        replies: [
+          {
+            id: 1,
+            author: "admin",
+            comment: "Example Reply",
+            replies: [
+              {
+                author: "admin",
+                created_at: "19/07/2022",
+                comment: "Example reply reply",
+              },
+            ],
+          },
+        ],
+      },
+    ])
+  );
 }
 
 export function setUser(user) {

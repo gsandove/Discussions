@@ -1,6 +1,5 @@
 import { Box, ChakraProvider, Heading, Link } from "@chakra-ui/react";
 import theme from "./Theme";
-import Discussions from "./Discussions";
 import { initLocalStorage } from "./Storage";
 const linkStyles = {
   color: "#ffffffcc",
@@ -31,7 +30,6 @@ function App() {
           </Link>
         </Box>
       </Box>
-      <Discussions />
       {/* end navbar component */}
     </ChakraProvider>
   );
