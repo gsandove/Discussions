@@ -34,7 +34,7 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/discussion/:id" element={<Discussion />} />
+          <Route path="/discussions" element={<Discussions />} />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>
