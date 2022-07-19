@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 
 import { initLocalStorage } from "./Storage";
+import Discussions from "../pages/Discussions";
 const linkStyles = {
   color: "#ffffffcc",
   transition: "color 0.15s",

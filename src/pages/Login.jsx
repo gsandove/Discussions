@@ -1,5 +1,6 @@
 import { Box, Heading, Input, Button } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   FormControl,
@@ -7,10 +8,12 @@ import {
   FormErrorMessage,
   FormHelperText,
 } from "@chakra-ui/react";
+import { setUser } from "../components/Storage";
 
 function Login() {
   const [name, setName] = useState("");
   const [userGmail, setUserGmail] = useState("");
+  const navigate = useNavigate();
 
   const handleInput = (event) => {
     setName(event.target.value);
@@ -19,8 +22,10 @@ function Login() {
   const handleSubmit = (event) => {
     let user = {
       username: name,
-      email: userGmail
-    }
+      email: userGmail,
+    };
+    setUser(user);
+    navigate("/", { replace: true });
   };
 
   const handleInput2 = (event) => {
