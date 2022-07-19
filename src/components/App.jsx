@@ -1,4 +1,5 @@
 import { Box, ChakraProvider, Heading, Link } from "@chakra-ui/react";
+import theme from "./Theme";
 
 const linkStyles = {
   color: "#ffffffcc",
@@ -9,7 +10,7 @@ const linkStyles = {
 
 function App() {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       {/* move this to navbar component */}
       <Box as="nav" background="#ff6600" p="16px" mb="32px" width="100%">
         <Box
