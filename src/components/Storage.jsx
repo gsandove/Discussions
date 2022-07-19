@@ -8,7 +8,7 @@ export function initLocalStorage(props) {
       },
     ])
   );
-  localStorage.setItem("Discussions", [
+  localStorage.setItem("discussions", [
     {
       id: 1,
       title: "Title Discussion",
@@ -31,4 +31,27 @@ export function initLocalStorage(props) {
       ],
     },
   ]);
+}
+
+export function setUser(user) {
+  localStorage.setItem("user", JSON.stringify(user));
+}
+
+export function getAllDiscussions() {
+  return JSON.parse(localStorage.getItem("discussions"));
+}
+
+export function addDiscussion(discussion) {
+  let discussions = getAllDiscussions();
+  discussion.id = discussion.length() + 1;
+  discussion.replies = [];
+  discussions.push(discussion);
+  localStorage.setItem("discussions", JSON.stringify(discussions));
+  return discussion;
+}
+
+export function setDiscussionById(discussion) {
+  let discussions = getAllDiscussions();
+  discussions.splice(discussion.id - 1, 1, discussion);
+  localStorage.setItem("discussions", discussions);
 }
