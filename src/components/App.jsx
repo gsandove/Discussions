@@ -2,6 +2,7 @@ import { Box, ChakraProvider, Heading, Link, Switch } from "@chakra-ui/react";
 import theme from "./Theme";
 import Login from "../pages/Login";
 import Home from "../pages/Home";
+import Discussion from "../pages"
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 
