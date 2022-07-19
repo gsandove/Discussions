@@ -1,6 +1,7 @@
 import { Box, ChakraProvider, Heading, Link } from "@chakra-ui/react";
 import theme from "./Theme";
 import { initLocalStorage } from "./Storage";
+import Discussions from "../pages/Discussions";
 const linkStyles = {
   color: "#ffffffcc",
   transition: "color 0.15s",

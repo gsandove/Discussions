@@ -15,7 +15,7 @@ export function initLocalStorage() {
         id: 1,
         title: "Title Discussion",
         body: "Example Discussion",
-        author: "admins",
+        author: "admin",
         created_at: "19/07/2022",
         replies: [
           {
