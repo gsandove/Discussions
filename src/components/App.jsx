@@ -1,6 +1,6 @@
 import { Box, ChakraProvider, Heading, Link } from "@chakra-ui/react";
 import theme from "./Theme";
-
+import Discussions from "./Discussions";
 const linkStyles = {
   color: "#ffffffcc",
   transition: "color 0.15s",
@@ -29,11 +29,8 @@ function App() {
           </Link>
         </Box>
       </Box>
+      <Discussions />
       {/* end navbar component */}
-
-      <Box maxW="920px" margin="auto">
-        <Heading>Welcome to Chaos</Heading>
-      </Box>
     </ChakraProvider>
   );
 }
