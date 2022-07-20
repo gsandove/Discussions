@@ -41,6 +41,10 @@ export function deleteUser(){
   localStorage.removeItem("user");
 }
 
+export function getCurrentUser() {
+  return JSON.parse(localStorage.getItem("user"));
+}
+
 export function getAllDiscussions() {
   return JSON.parse(localStorage.getItem("discussions"));
 }
