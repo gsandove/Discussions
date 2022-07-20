@@ -2,13 +2,30 @@ import { Box, Container, Heading, Textarea } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Button, ButtonGroup } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import { getAllDiscussions } from "../components/Storage";
+import { getAllDiscussions, getCurrentUser } from "../components/Storage";
+import Reply from "../components/Reply";
 function DiscussionDetail() {
   const { idDiscussion } = useParams();
+  const [replies, setReplies] = useState([]);
+  const [commentReply, setCommentReply] = useState("");
+  const handleCommentReply = (event) => {
+    setCommentReply(event.target.value);
+  };
   const [discussion, setDiscussion] = useState(
     getAllDiscussions().find((disc) => disc.id == idDiscussion)
   );
-  console.log(discussion);
+  const addReply = () => {
+    let newReply = {
+      id: replies.length + 1,
+      author: getCurrentUser().username,
+      comment: commentReply,
+      created_at: new Date().toLocaleDateString(),
+      replies: [],
+    };
+    const newState = [newReply, ...replies];
+    console.log(newState);
+    setReplies(newState);
+  };
   return (
     <Container
       width="100%"
@@ -18,14 +35,16 @@ function DiscussionDetail() {
       margin="0px auto"
       padding="1em"
     >
-      <Box>
-        <Heading>{discussion.title}</Heading>
-        <Heading fontSize="15px" m="10px 625px 0px 0px">
+      <Box justifyContent="center">
+        <Heading textAlign="center">{discussion.title}</Heading>
+        <span fontSize="15px" m="10px 625px 0px 0px">
           {discussion.author} - {discussion.created_at}
-        </Heading>
-        <Heading display="block" fontSize="15px" m="15px 0px 15px 0px">
+        </span>
+        <br />
+        <br />
+        <p display="block" fontSize="15px" m="15px 0px 15px 0px">
           {discussion.body}
-        </Heading>
+        </p>
         <Heading width="100%">
           -----------------------------------------------------------
         </Heading>
@@ -42,11 +61,22 @@ function DiscussionDetail() {
         color="rgb(52, 73, 94)"
         width="100%"
         resize="none"
-        h="10rem"
+        h="7rem"
+        onChange={handleCommentReply}
       ></Textarea>
-      <Button colorScheme="orange" m="10px 625px 0px 0px" w="100%">
+      <Button
+        colorScheme="orange"
+        m="10px 625px 0px 0px"
+        w="100%"
+        onClick={addReply}
+      >
         REPLY
       </Button>
+      <Box>
+        {replies.map((reply) => (
+          <Reply key={reply.id} reply={reply} />
+        ))}
+      </Box>
     </Container>
   );
 }
