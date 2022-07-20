@@ -1,13 +1,8 @@
-import { Box, Heading, Input, Button } from "@chakra-ui/react";
+import { Box, Heading, Input, Button, Container } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-} from "@chakra-ui/react";
+import { FormControl, FormLabel } from "@chakra-ui/react";
 import { setUser } from "../components/Storage";
 
 function Login() {
@@ -33,19 +28,27 @@ function Login() {
   };
 
   return (
-    <Box>
-      <Box maxW="450'px" margin="auto" padding="100px" bg={"white"}>
-        <Heading mb={"20px"}>Welcome to chabelos</Heading>
+    <Container my={"auto"} w={"500px"} bg={"white"} padding={"32px 16px"}>
+      <Box
+        maxW="450'px"
+        margin="auto"
+        padding="100px"
+        bg={"white"}
+        textAlign={"center"}
+      >
+        <Heading mb={"20px"} textAlign={"center"}>
+          Welcome to chabelos
+        </Heading>
         <FormControl>
-          <FormLabel></FormLabel>
           <Input
             value={name}
             onChange={handleInput}
             placeholder="Enter your username"
             type="email"
           />
-          <FormLabel></FormLabel>
+
           <Input
+            marginY={"20px"}
             value={userGmail}
             onChange={handleInput2}
             placeholder="Enter your email"
@@ -56,12 +59,13 @@ function Login() {
             marginTop={"15px"}
             align="center"
             colorScheme="red"
+            w={"100%"}
           >
             Enter
           </Button>
         </FormControl>
       </Box>
-    </Box>
+    </Container>
   );
 }
 export default Login;
