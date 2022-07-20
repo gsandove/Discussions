@@ -8,6 +8,8 @@ import Navbar from "./Navbar";
 import { initLocalStorage } from "./Storage";
 import Discussions from "../pages/Discussions";
 import DiscussionDetail from "../pages/DiscussionDetail";
+import React from "react";
+
 const linkStyles = {
   color: "#ffffffcc",
   transition: "color 0.15s",
@@ -26,15 +28,19 @@ function Discussion() {
 }
 
 function App() {
+  const [user, setUser] = React.useState(
+    JSON.parse(localStorage.getItem("user"))
+  );
+
   initLocalStorage();
   return (
     <ChakraProvider theme={theme}>
       <BrowserRouter>
-        <Navbar />
+        <Navbar user={user} setUser={setUser} />
         {/* cosas dinamicas  */}
         <Routes>
           <Route index element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/discussions" element={<Discussions />} />
           <Route
             path="/discussions/:idDiscussion"

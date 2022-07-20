@@ -36,8 +36,12 @@ export function initLocalStorage() {
   );
 }
 
-export function setUser(user) {
-  localStorage.setItem("user", JSON.stringify(user));
+export function deleteUser() {
+  localStorage.removeItem("user");
+}
+
+export function getCurrentUser() {
+  return JSON.parse(localStorage.getItem("user"));
 }
 
 export function getAllDiscussions() {
@@ -59,6 +63,4 @@ export function setDiscussionById(discussion) {
   localStorage.setItem("discussions", discussions);
 }
 
-export function findDiscussionById(id) {
-  
-}
+export function findDiscussionById(id) {}

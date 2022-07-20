@@ -1,6 +1,7 @@
-import { Box } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-import React from "react";
+import { Box, Button } from "@chakra-ui/react";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { deleteUser } from "./Storage";
 
 const linkStyles = {
   color: "#ffffffcc",
@@ -9,7 +10,15 @@ const linkStyles = {
   _hover: { color: "#ffffff" },
 };
 
-function Navbar() {
+function Navbar({ user, setUser }) {
+  const navigate = useNavigate();
+
+  function closeSesion() {
+    setUser(null);
+    deleteUser();
+    navigate("/login", { replace: true });
+  }
+
   return (
     <Box as="nav" background="#ff6600" p="16px" mb="32px" width="100%">
       <Box
@@ -23,9 +32,23 @@ function Navbar() {
         <Link to="/" {...linkStyles}>
           Chaos news
         </Link>
-        <Link to="/login" {...linkStyles}>
-          Login
-        </Link>
+        {user ? (
+          <>
+            <Box ml={"auto"}>{user.username}</Box>
+            <Button
+              onClick={closeSesion}
+              background="rgb(255,102,0)"
+              color="white"
+            >
+              {" "}
+              Logout{" "}
+            </Button>
+          </>
+        ) : (
+          <Link to="/login" {...linkStyles}>
+            Login
+          </Link>
+        )}
       </Box>
     </Box>
   );
