@@ -58,3 +58,7 @@ export function setDiscussionById(discussion) {
   discussions.splice(discussion.id - 1, 1, discussion);
   localStorage.setItem("discussions", discussions);
 }
+
+export function findDiscussionById(id) {
+  
+}
