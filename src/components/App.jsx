@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 
 import { initLocalStorage } from "./Storage";
+import Discussions from "../pages/Discussions";
+import DiscussionDetail from "../pages/DiscussionDetail";
 const linkStyles = {
   color: "#ffffffcc",
   transition: "color 0.15s",
@@ -33,7 +35,11 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/discussion/:id" element={<Discussion />} />
+          <Route path="/discussions" element={<Discussions />} />
+          <Route
+            path="/discussions/:idDiscussion"
+            element={<DiscussionDetail />}
+          />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>
