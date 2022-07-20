@@ -1,5 +1,6 @@
-import { Box, Divider, Link, ListItem } from "@chakra-ui/react";
+import { Box, Divider, ListItem } from "@chakra-ui/react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Discussion({ discussion }) {
   return (
@@ -13,9 +14,7 @@ function Discussion({ discussion }) {
         paddingTop="1rem"
         borderRadius="5px"
       >
-        <Link hrefLang={"/Discussions/" + discussion.id}>
-          {discussion.title}
-        </Link>
+        <Link to={"/Discussions/" + discussion.id}>{discussion.title}</Link>
         <Box fontSize="0.85rem" color="rgb(148, 142, 133)">
           <span>by {discussion.author}</span>
           <span>{discussion.created_at}</span>

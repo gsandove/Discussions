@@ -36,8 +36,7 @@ export function initLocalStorage() {
   );
 }
 
-
-export function deleteUser(){
+export function deleteUser() {
   localStorage.removeItem("user");
 }
 
@@ -64,4 +63,4 @@ export function setDiscussionById(discussion) {
   localStorage.setItem("discussions", discussions);
 }
 
-
+export function findDiscussionById(id) {}
