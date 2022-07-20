@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 
 import { initLocalStorage } from "./Storage";
 import Discussions from "../pages/Discussions";
+import DiscussionDetail from "../pages/DiscussionDetail";
 const linkStyles = {
   color: "#ffffffcc",
   transition: "color 0.15s",
@@ -35,6 +36,10 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/discussions" element={<Discussions />} />
+          <Route
+            path="/discussions/:idDiscussion"
+            element={<DiscussionDetail />}
+          />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>
