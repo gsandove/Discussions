@@ -40,6 +40,10 @@ export function setUser(user) {
   localStorage.setItem("user", JSON.stringify(user));
 }
 
+export function deleteUser(){
+  localStorage.removeItem("user");
+}
+
 export function getAllDiscussions() {
   return JSON.parse(localStorage.getItem("discussions"));
 }
@@ -58,3 +62,5 @@ export function setDiscussionById(discussion) {
   discussions.splice(discussion.id - 1, 1, discussion);
   localStorage.setItem("discussions", discussions);
 }
+
+

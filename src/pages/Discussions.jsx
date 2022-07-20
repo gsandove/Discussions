@@ -80,3 +80,13 @@ function Discussions() {
 }
 
 export default Discussions;
+
+/*
+export function logOut(){
+
+  return(
+    onClick={handleLogOut}
+  );
+
+}
+*/
