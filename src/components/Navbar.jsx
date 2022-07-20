@@ -15,7 +15,7 @@ function Navbar({ user, setUser }) {
 
   function closeSesion() {
     setUser(null);
-    deleteUser()
+    deleteUser();
     navigate("/login", { replace: true });
   }
 
@@ -32,10 +32,18 @@ function Navbar({ user, setUser }) {
         <Link to="/" {...linkStyles}>
           Chaos news
         </Link>
-        {user != null ? (
-          <Button {...linkStyles} onClick={closeSesion}>
-            logout
-          </Button>
+        {user ? (
+          <>
+            <Box ml={"auto"}>{user.username}</Box>
+            <Button
+              onClick={closeSesion}
+              background="rgb(255,102,0)"
+              color="white"
+            >
+              {" "}
+              Logout{" "}
+            </Button>
+          </>
         ) : (
           <Link to="/login" {...linkStyles}>
             Login
