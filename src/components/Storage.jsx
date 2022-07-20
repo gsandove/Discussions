@@ -48,13 +48,8 @@ export function getAllDiscussions() {
   return JSON.parse(localStorage.getItem("discussions"));
 }
 
-export function addDiscussion(discussion) {
-  let discussions = getAllDiscussions();
-  discussion.id = discussion.length() + 1;
-  discussion.replies = [];
-  discussions.push(discussion);
+export function setDiscussions(discussions) {
   localStorage.setItem("discussions", JSON.stringify(discussions));
-  return discussion;
 }
 
 export function setDiscussionById(discussion) {
