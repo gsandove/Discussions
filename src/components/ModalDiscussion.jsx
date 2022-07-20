@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 import { DiscussionsContext } from "../Context/DiscussionsContext";
-import { getCurrentUser } from "./Storage";
+import { getCurrentUser, setDiscussions } from "./Storage";
 
 function ModalDiscussion() {
   const initialRef = React.useRef(null);
@@ -42,9 +42,8 @@ function ModalDiscussion() {
       replies: [],
     };
     const newState = [...discussions, newDiscussion];
-    console.log(newState);
-
     cb(newState);
+    setDiscussions(newState);
     onClose();
   };
 
