@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { FormControl, FormLabel } from "@chakra-ui/react";
-import { setUser } from "../components/Storage";
+import { deleteUser } from "../components/Storage";
 
-function Login() {
+function Login({ setUser }) {
   const [name, setName] = useState("");
   const [userGmail, setUserGmail] = useState("");
   const navigate = useNavigate();
@@ -20,6 +20,7 @@ function Login() {
       email: userGmail,
     };
     setUser(user);
+    localStorage.setItem("user", JSON.stringify(user));
     navigate("/discussions", { replace: true });
   };
 
@@ -68,4 +69,5 @@ function Login() {
     </Container>
   );
 }
+
 export default Login;
