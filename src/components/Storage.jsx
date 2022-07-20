@@ -40,6 +40,10 @@ export function setUser(user) {
   localStorage.setItem("user", JSON.stringify(user));
 }
 
+export function getCurrentUser() {
+  return JSON.parse(localStorage.getItem("user"));
+}
+
 export function getAllDiscussions() {
   return JSON.parse(localStorage.getItem("discussions"));
 }
