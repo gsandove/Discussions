@@ -1,7 +1,7 @@
 import { Box, Button } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { deleteUser } from "./Storage";
+import { deleteUser, getCurrentUser } from "./Storage";
 
 const linkStyles = {
   color: "#ffffffcc",
@@ -29,8 +29,15 @@ function Navbar({ user, setUser }) {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Link to="/" {...linkStyles}>
+        <Link
+          to={!getCurrentUser() ? "/login" : "/discussions"}
+          {...linkStyles}
+        >
           Chaos news
+        </Link>
+        ----|----
+        <Link to="/" {...linkStyles}>
+          Team
         </Link>
         {user ? (
           <>
