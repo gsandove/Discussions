@@ -25,7 +25,7 @@ function Login() {
       email: userGmail,
     };
     setUser(user);
-    navigate("/", { replace: true });
+    navigate("/discussions", { replace: true });
   };
 
   const handleInput2 = (event) => {
