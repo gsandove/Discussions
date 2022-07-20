@@ -29,7 +29,7 @@ function Discussion() {
 
 function App() {
   const [user, setUser] = React.useState(
-    JSON.parse(localStorage.getItem("user") || "null")
+    JSON.parse(localStorage.getItem("user"))
   );
 
   initLocalStorage();

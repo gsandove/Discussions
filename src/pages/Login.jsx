@@ -61,6 +61,8 @@ function Login({ setUser }) {
             align="center"
             colorScheme="red"
             w={"100%"}
+            background="rgb(255,102,0)"
+            color="white"
           >
             Enter
           </Button>
